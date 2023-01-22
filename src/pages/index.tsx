@@ -2,8 +2,25 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
+import Calendar from '@/components/calendar'
+import { css, useTheme } from '@emotion/react'
+import styled from '@emotion/styled'
+import ThemeSwitcher from '@/components/themeSwitcher'
+import Button1 from '@mui/material/Button'
 
 const inter = Inter({ subsets: ['latin'] })
+
+const Button = styled.button`
+  padding: 32px;
+  background-color: ${props => props.theme.palette.primary.main};
+  font-size: 24px;
+  border-radius: 4px;
+  color: black;
+  font-weight: bold;
+  &:hover {
+    color: white;
+  }
+`
 
 export default function Home() {
   return (
@@ -15,6 +32,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
+      <div style={{ backgroundColor: 'white' }}>
+      <ThemeSwitcher/>
+        <Button>Hello</Button>
+      <Calendar/>
+    </div>
         <div className={styles.description}>
           <p>
             Get started by editing&nbsp;
